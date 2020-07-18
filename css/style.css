@@ -142,6 +142,7 @@ main {
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 10px;
 }
 
 .alert {
@@ -209,10 +210,13 @@ main {
 }
 
 .charts {
-    margin: 0 auto;
+    margin: 20px auto;
     display: flex;
     justify-content: space-around;
-    height: 500px;
+    flex-direction: column;
+    margin-top:10;
+    height: 100vh;
+    /* height: 800px; */
 }
 
 .charts h3 {
@@ -222,12 +226,8 @@ main {
 .mobile-users,
 .daily-traffic {
     margin: 0 auto;
-    width: 50%;
-    border-top: 1px solid #B0B0B0;
-}
-
-.daily-traffic {
-    border-right: 1px solid #B0B0B0;
+    width: 100%;
+    height: 50%;
 }
 
 .social-stat-title {
@@ -242,14 +242,17 @@ main {
 
 .social-stat {
     display: flex;
-    justify-content: space-around;
-    height: 120px;
-    padding: 15px 0 15px;
+    align-items: center;
+    flex-direction: column;
+    /* height: 120px; */
+    /* padding: 15px 0 15px; */
 }
 
 .stat-icon {
+    margin-top:10px;
+    margin-bottom: 15px;
     border: 1px solid grey;
-    padding: 5px 5px;
+    /* width: 40%; */
     border-radius: 8px;
     background: whitesmoke;
 }
@@ -272,6 +275,7 @@ main {
 .twitter,
 .facebook {
     margin: 0 auto;
+    margin-left: 15px;
     width: 50px;
     height: 50px;
     background: #7477bf;
@@ -342,14 +346,9 @@ main {
     margin-bottom: auto;
 }
 
-.new-members-container,
-.recent-activities-container {
-    border-bottom: 1px solid slategrey;
-}
-
-.messenger-container,
-.new-members-container {
-    border-right: 1px solid slategrey;
+.widget {
+    display: flex;
+    flex-direction: column;
 }
 
 .recent-activities,
@@ -357,7 +356,8 @@ main {
 .messenger,
 .settings {
     background: white;
-    width: 80%;
+    width: 90%;
+    padding: 20px;
     margin: 0 auto;
 }
 
@@ -476,99 +476,89 @@ main {
     Transform: scale(1.1);
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 1024px) {
+    .charts {
+        margin: 20px auto;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        margin-top:10;
+        height: 50vh;
+    }
+
+    .mobile-users,
+    .daily-traffic {
+        height: 100%;
+    }
+
+    .social-stat-title {
+        margin-left: 75px;
+    }
+
     .recent-activities,
     .new-members,
     .messenger,
     .settings {
-        width: 95%;
+        background: white;
+        width: 85%;
+        padding: 20px;
+        margin: 0 auto;
     }
 }
 
-@media (max-width: 768px) {
-    .primary-chart {
-        margin-bottom: 10px;
-        height: 450px;
+@media (min-width: 768px) {
+    .widget {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
 
-    .primary-chart-canvas {
-        height: 300px;
-    }
+    /* .social-stat-title {
+        margin-left: 15px;
+    } */
 
-    .traffic-chart {
-        margin: 30 auto;
-        height: 500px;
-        width: 100%;
-    }
-    
-    .stat-icon {
-        border: 1px solid grey;
-        padding: 5px 10px;
-        border-radius: 8px;
-        background: whitesmoke;
-        height : 100px;
-    }
-    
-    .stat-icon > * {
-        display: inline-block;
-        margin: 5px;
-    }
-    
     .stat-icon h4 {
-        margin: 0 auto;
+        margin: 20px;
     }
-    
+
     .stat-icon p {
-        margin: 3px auto;
+        margin: 20px;
         font-size: 3em;
     }
 
-    .recent-activities,
+    /* .recent-activities,
     .new-members,
     .messenger,
     .settings {
-        width: 100%;
+        background: white;
+        width: 95%;
+        padding: 20px;
+        margin: 0 auto;
+    } */
+
+    .messenger-container,
+    .settings-container {
+        border-top: 1px solid slategrey; 
+    }
+
+    .new-members-container,
+    .messenger-container {
+        border-right: 1px solid slategrey; 
     }
 }
 
-@media (max-width: 320px) {
-
-    .primary-chart {
-        margin-bottom: 10px;
-    }
-
-    .charts {
+@media (min-width: 320px) {
+    .social-stat {
         display: flex;
-        flex-direction: column;
-        margin-top:10;
-        height: 800px;
-    }
-
-    .daily-traffic,
-    .mobile-users {
-        height: 400px;
-        margin: 0 auto;
+        justify-content: space-evenly;
+        flex-direction: row;
     }
 
     .stat-icon {
-        height : 100px;
+        max-width: 25%;
     }
 
-    .widget {
-        /* display: grid;
-        grid-template-columns: 1fr 1fr; */
-        display: flex;
-        flex-direction: column;
+    .stat-icon > * {
+        margin: 10px;
     }
 
-    .messenger-container {
-        border-bottom: 1px solid slategrey;
-    }
-
-    .recent-activities,
-    .new-members,
-    .messenger,
-    .settings {
-        width: 100%;
-    }
-}
+} 
